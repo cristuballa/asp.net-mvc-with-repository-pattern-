@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using ApplicationCore.Entities;
+using System;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace ApplicationCore.ValueObjects
+namespace ApplicationCore.Services
+
 {
-    public class NumberToText
+    public class NumberToText : Person
     {
 
+        public decimal Amount { get; set; }
+        public string AmountInWords { get; set; } 
 
-        public String ConvertAmountToWord(decimal number)
+        public void ConvertAmountToWord(decimal number)
         {
             try
             {
@@ -20,7 +21,7 @@ namespace ApplicationCore.ValueObjects
                 string integralPartStr = ConvertNumberToWord(integralPart);
                 string decimalPartStr = ConvertNumberToWord(decimalPartLong);
 
-                return integralPartStr + "AND" + decimalPartStr + " CENTS";
+                AmountInWords= integralPartStr + " AND " + decimalPartStr + " CENTS";
             }
             catch (Exception)
             {
@@ -39,7 +40,7 @@ namespace ApplicationCore.ValueObjects
             string[] tens = new string[] { "", "", "TWENTY", "THIRTY", "FORTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY" };
             string[] thousands = new string[] { "", "THOUSAND", "MILLION", "BILLION", "TRILLION" };
 
-            if (number < 1000000000000000 && number > 0)
+            if (number < 1000000000000000 && number >= 0)
             {
 
                 if (number >= 1000)
@@ -93,7 +94,7 @@ namespace ApplicationCore.ValueObjects
 
             else
             {
-                return "Number is out of range.";
+                return "Invalid Amount.";
             }
 
 
