@@ -3,7 +3,7 @@ using ApplicationCore.Entities;
 
 namespace ApplicationCore.Interfaces
 {
-    public interface ISupplierRepository
+    public interface ISupplierRepository:IRepository<Supplier>
     {
         IEnumerable<Supplier> SupplierListByCategory(int categoryId);
     }

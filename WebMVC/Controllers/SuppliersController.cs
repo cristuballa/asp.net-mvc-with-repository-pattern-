@@ -15,17 +15,17 @@ namespace WebMVC.Controllers
         // GET: Suppliers
         public ActionResult Index()
         {
-            return View(unitOfWork);
+            return View(unitOfWork.Suppliers.GetAll());
         }
 
         // GET: Suppliers/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Supplier supplier = db.Supplier.Find(id);
+            Supplier supplier = unitOfWork.Suppliers.GetbyId(id);
             if (supplier == null)
             {
                 return HttpNotFound();
@@ -48,8 +48,8 @@ namespace WebMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Supplier.Add(supplier);
-                db.SaveChanges();
+                unitOfWork.Suppliers.Add(supplier);
+                unitOfWork.Complete();
                 return RedirectToAction("Index");
             }
 
@@ -57,13 +57,13 @@ namespace WebMVC.Controllers
         }
 
         // GET: Suppliers/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Supplier supplier = db.Supplier.Find(id);
+            Supplier supplier = unitOfWork.Suppliers.GetbyId(id);
             if (supplier == null)
             {
                 return HttpNotFound();
@@ -80,21 +80,21 @@ namespace WebMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(supplier).State = EntityState.Modified;
-                db.SaveChanges();
+                unitOfWork.Suppliers.Update(supplier);
+                unitOfWork.Complete();
                 return RedirectToAction("Index");
             }
             return View(supplier);
         }
 
         // GET: Suppliers/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Supplier supplier = db.Supplier.Find(id);
+            Supplier supplier = unitOfWork.Suppliers.GetbyId(id);
             if (supplier == null)
             {
                 return HttpNotFound();
@@ -107,9 +107,9 @@ namespace WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Supplier supplier = db.Supplier.Find(id);
-            db.Supplier.Remove(supplier);
-            db.SaveChanges();
+            Supplier supplier = unitOfWork.Suppliers.GetbyId(id);
+            unitOfWork.Suppliers.Remove(supplier);
+            unitOfWork.Complete();
             return RedirectToAction("Index");
         }
 
@@ -117,7 +117,7 @@ namespace WebMVC.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                unitOfWork.Dispose();
             }
             base.Dispose(disposing);
         }
