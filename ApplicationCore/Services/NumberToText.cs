@@ -80,7 +80,7 @@ namespace ApplicationCore.Services
                     number = 0;
                 }
 
-                if (number > 0 && number < 10)
+                if (number >= 0 && number < 10)
                 {
                     numberTexts.Append(" " + units[number]);
 
