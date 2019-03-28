@@ -9,15 +9,16 @@ namespace ApplicationCore.ValueObjects
     public class NumberToText
     {
 
-        public String ContNumberToText(decimal number)
+
+        public String ConvertAmountToWord(decimal number)
         {
             try
             {
                 decimal decimalPart = (Math.Round(number, 2, MidpointRounding.ToEven) % 1.0m) * 100m;
                 ulong decimalPartLong = (ulong)decimalPart;
                 ulong integralPart = (ulong)number;
-                string integralPartStr = ConvertNumberToText(integralPart);
-                string decimalPartStr = ConvertNumberToText(decimalPartLong);
+                string integralPartStr = ConvertNumberToWord(integralPart);
+                string decimalPartStr = ConvertNumberToWord(decimalPartLong);
 
                 return integralPartStr + "AND" + decimalPartStr + " CENTS";
             }
@@ -29,7 +30,7 @@ namespace ApplicationCore.ValueObjects
 
         }
 
-        private string ConvertNumberToText(ulong number)
+        private string ConvertNumberToWord(ulong number)
         {
 
             StringBuilder numberTexts = new StringBuilder();
@@ -50,7 +51,7 @@ namespace ApplicationCore.ValueObjects
 
                         if (number >= thousandPower)
                         {
-                            numberTexts.Append(ConvertNumberToText(thousandCount) + " " + thousands[i]);
+                            numberTexts.Append(ConvertNumberToWord(thousandCount) + " " + thousands[i]);
                             number -= thousandCount * thousandPower;
                         }
                     }
@@ -59,7 +60,7 @@ namespace ApplicationCore.ValueObjects
                 if (number >= 100)
                 {
                     ulong hundredscount = (number - (number % 100)) / 100;
-                    numberTexts.Append(ConvertNumberToText(hundredscount) + " HUNDRED");
+                    numberTexts.Append(ConvertNumberToWord(hundredscount) + " HUNDRED");
                     number -= hundredscount * 100;
                 }
 

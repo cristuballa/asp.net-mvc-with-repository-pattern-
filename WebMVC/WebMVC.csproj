@@ -232,7 +232,6 @@
     <Content Include="Views\Shared\assets\js\demo.js" />
     <Content Include="Views\Shared\assets\js\jquery.3.2.1.min.js" />
     <Content Include="Views\Shared\assets\js\light-bootstrap-dashboard.js" />
-    <Content Include="Views\Shared\dashboard.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
