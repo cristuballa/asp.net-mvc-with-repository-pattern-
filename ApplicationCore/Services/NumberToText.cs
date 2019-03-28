@@ -19,13 +19,12 @@ namespace ApplicationCore.Services
                 ulong decimalPartLong = (ulong)decimalPart;
                 ulong integralPart = (ulong)number;
                 string integralPartStr = ConvertNumberToWord(integralPart);
-                string decimalPartStr = ConvertNumberToWord(decimalPartLong);
+                string decimalPartStr = decimalPartLong>0 ? "AND" + ConvertNumberToWord(decimalPartLong) + " CENTS" : " ";
 
-                AmountInWords= integralPartStr + " AND " + decimalPartStr + " CENTS";
+                AmountInWords= integralPartStr + " " + decimalPartStr;
             }
             catch (Exception)
             {
-
                 throw;
             }
 
@@ -36,7 +35,7 @@ namespace ApplicationCore.Services
 
             StringBuilder numberTexts = new StringBuilder();
             string[] units = new string[] { "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE" };
-            string[] teens = new string[] { "TEN", "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EITHTEEN", "NINETEEN " };
+            string[] teens = new string[] { "TEN", "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN", "NINETEEN " };
             string[] tens = new string[] { "", "", "TWENTY", "THIRTY", "FORTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY" };
             string[] thousands = new string[] { "", "THOUSAND", "MILLION", "BILLION", "TRILLION" };
 
@@ -80,7 +79,7 @@ namespace ApplicationCore.Services
                     number = 0;
                 }
 
-                if (number >= 0 && number < 10)
+                if (number > 0 && number < 10)
                 {
                     numberTexts.Append(" " + units[number]);
 
