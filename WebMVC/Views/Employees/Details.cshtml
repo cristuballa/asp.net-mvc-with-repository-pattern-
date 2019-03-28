@@ -5,10 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
 
 <div>
-    <h4>Employee</h4>
+    <h4>Employee Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -38,6 +37,14 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+
+    <a href="@Url.Action("Edit", "Employees", new { id = Model.Id })" class="btn btn-success">
+        <i class="glyphicon-glyphicon-pencil"></i>
+        Edit
+    </a>
+    <a href="@Url.Action("Index", "Employees")" class="btn btn-primary">
+        <i class="glyphicon-glyphicon-menu-left"></i>
+        Back to Customer List
+    </a>
+
 </p>
