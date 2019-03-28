@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApplicationCore.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +9,20 @@ namespace WebMVC.Controllers
 {
     public class HomeController : Controller
     {
+      
         public ActionResult Index()
         {
-            return View();
+            var numberToText = new NumberToText();
+            return View(numberToText);
         }
 
-        public ActionResult About()
+
+        [HttpPost]
+        public ActionResult Index([Bind(Include = "FirstName,LastName,Amount")] NumberToText numberToText)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            numberToText.ConvertAmountToWord(numberToText.Amount);
+            return View(numberToText);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
