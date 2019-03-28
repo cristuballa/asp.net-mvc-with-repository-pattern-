@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ApplicationCore.Entities.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="col-md-12">
+    <p>
+        <a href="@Url.Action("Create", "Products")" class="btn btn-success">
+            <i class="glyphicon glyphicon-plus"></i>
+            New Product
+        </a>
+    </p>
+    <div class="card">
+
+        <div class="header">
+            <h4 class="title">Product List</h4>
+
+        </div>
+
+        <div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped">
+                <thead>
+                <th style="width: 25%; text-align: center"> @Html.DisplayNameFor(model => model.Description)</th>
+                <th style="width: 10%;text-align: center">@Html.DisplayNameFor(model => model.Barcode)</th>
+                <th style="width: 10%;text-align: center">@Html.DisplayNameFor(model => model.StockNo)</th>
+                <th style="width: 10%;text-align: center"> @Html.DisplayNameFor(model => model.UnitPrice)</th>
+                <th style="width: 5%;text-align: center"> @Html.DisplayNameFor(model => model.Unit)</th>
+                <th style="width: 13%;text-align: center"> @Html.DisplayNameFor(model => model.WholesalePrice1)</th>
+                <th style="width: 13%;text-align: center"> @Html.DisplayNameFor(model => model.WholesalePrice2)</th>
+                <th style="text-align: center">Actions</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Barcode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StockNo)
+                            </td>
+                            <td align="right">
+
+                                @Html.DisplayFor(modelItem => item.UnitPrice)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Unit)
+                            </td>
+                            <td align="right">
+                                @Html.DisplayFor(modelItem => item.WholesalePrice1)
+                            </td>
+                            <td align="right">
+                                @Html.DisplayFor(modelItem => item.WholesalePrice2)
+                            </td>
+
+                            <td class="td-actions text-right">
+
+                                <a href="@Url.Action("Edit", "Products", new { id = item.Id })" rel="tooltip" title="Edit Task"  class="btn btn-info btn-simple btn-sm">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Details", "Products" , new { id=item.Id })" rel="tooltip" title="Detail" class="btn btn-success btn-simple btn-xs">
+                                    <i class="glyphicon glyphicon-file"></i>
+                                </a>
+                                <a href="@Url.Action("Delete", "Products", new { id = item.Id })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-sm">
+                                    <i class="fa fa-times"></i>
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

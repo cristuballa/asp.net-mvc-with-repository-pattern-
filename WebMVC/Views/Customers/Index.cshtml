@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ApplicationCore.Entities.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <p>
+        <a href="@Url.Action("Create", "Customers")" class="btn btn-success">
+            <i class="glyphicon glyphicon-plus"></i>
+            New Customer
+        </a>
+    </p>
+    <div class="card">
+
+        <div class="header">
+            <h4 class="title">Customer List</h4>
+
+        </div>
+
+        <div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped">
+                <thead>
+                <th style="width: 25%; text-align: center"> @Html.DisplayNameFor(model => model.CustomerName)</th>
+                <th style="width: 20%;text-align: center">@Html.DisplayNameFor(model => model.ContactPerson)</th>
+                <th style="width: 15%;text-align: center">@Html.DisplayNameFor(model => model.EmailAdd)</th>
+                <th style="width: 20%;text-align: center"> @Html.DisplayNameFor(model => model.ContactInfo)</th>
+                <th style="text-align: center">Actions</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ContactPerson)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmailAdd)
+                            </td>
+                            <td align="right">
+
+                                @Html.DisplayFor(modelItem => item.ContactInfo)
+                            </td>
+                         
+
+                            <td align="right">
+
+
+                                <a href="@Url.Action("Edit", "Customers", new { id = item.Id })" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-sm">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Details", "Customers" , new { id=item.Id })" rel="tooltip" title="Detail" class="btn btn-success btn-simple btn-xs">
+                                    <i class="glyphicon glyphicon-file"></i>
+                                </a>
+                                <a href="@Url.Action("Delete", "Customers", new { id = item.Id })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-sm">
+                                    <i class="fa fa-times"></i>
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

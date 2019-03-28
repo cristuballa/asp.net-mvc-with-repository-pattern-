@@ -1,0 +1,56 @@
+﻿@model ApplicationCore.Entities.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Customer Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPerson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAdd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAdd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactInfo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    <a href="@Url.Action("Edit", "Customers", new { id = Model.Id })" class="btn btn-success">
+        <i class="glyphicon-glyphicon-pencil"></i>
+        Edit
+    </a>
+    <a href="@Url.Action("Index", "Customers")" class="btn btn-primary">
+        <i class="glyphicon-glyphicon-menu-left"></i>
+        Back to Customer List
+    </a>
+</p>

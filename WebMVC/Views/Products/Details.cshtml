@@ -1,0 +1,87 @@
+﻿@model ApplicationCore.Entities.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h4>Product Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Barcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Barcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StockNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StockNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WholesalePrice1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WholesalePrice1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WholesalePrice2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WholesalePrice2)
+        </dd>
+
+
+
+        @*<dd>
+            @Html.DisplayFor(model => model.ProductImage)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+
+    <a href="@Url.Action("Edit", "Products", new { id = Model.Id })" class="btn btn-success">
+        <i class="glyphicon-glyphicon-pencil"></i>
+        Edit
+    </a>
+    <a href="@Url.Action("Index", "Products")" class="btn btn-primary">
+        <i class="glyphicon-glyphicon-menu-left"></i>
+        Back to Product List
+    </a>
+</p>
