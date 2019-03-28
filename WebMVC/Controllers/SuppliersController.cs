@@ -3,18 +3,19 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ApplicationCore.Entities;
+using ApplicationCore.Interfaces;
 using Infrastructure.Data;
 
 namespace WebMVC.Controllers
 {
     public class SuppliersController : Controller
     {
-        private InventoryDBContext db = new InventoryDBContext();
+        private IUnitOfWork unitOfWork = new UnitOfWork();
 
         // GET: Suppliers
         public ActionResult Index()
         {
-            return View(db.Supplier.ToList());
+            return View(unitOfWork);
         }
 
         // GET: Suppliers/Details/5

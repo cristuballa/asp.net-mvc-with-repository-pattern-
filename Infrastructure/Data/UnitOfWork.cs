@@ -12,11 +12,13 @@ namespace Infrastructure.Data
             Products = new ProductRepository(Context);
             Customers = new CustomerRepository(Context);
             Employees = new EmployeeRepository(Context);
+            Suppliers = new SupplierRepository(Context);
         }
 
         public IProductRepository Products { get; set; }
         public ICustomerRepository Customers { get; set; }
         public IEmployeeRepository Employees { get; set; }
+        public ISupplierRepository Suppliers { get; set; }
 
         public void Complete()
         {

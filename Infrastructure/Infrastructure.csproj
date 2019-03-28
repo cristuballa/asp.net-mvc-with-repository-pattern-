@@ -53,6 +53,7 @@
     <Compile Include="Data\Repositories\EmployeeRepository.cs" />
     <Compile Include="Data\Repositories\ProductRepository.cs" />
     <Compile Include="Data\Repositories\Repository.cs" />
+    <Compile Include="Data\Repositories\SupplierRepository.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Migrations\201903192207274_InitialMigration.cs" />
     <Compile Include="Migrations\201903192207274_InitialMigration.Designer.cs">
