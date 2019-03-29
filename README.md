@@ -1,7 +1,7 @@
 # asp.net-mvc-with-repository-pattern-
 Repository pattern and unit of work implementation in asp.net mvc with Onion Architecture.
 
-This is a sample web application that introduce repository and unit of work design pattern. It allow us to work directly with the data in the database layers for database operations not in applicaton layer, application’s UI and business logic. It also gives us the ability to decouple our application to the persistence framework and databases.
+This is a sample web application that introduce repository and unit of work design pattern. It allow us to work directly with the data in the infrastructure layers for database operations not in applicaton layer, application’s UI and business logic. It also gives us the ability to decouple our application to the persistence framework and databases.
 
 
 # NumberToText class 
