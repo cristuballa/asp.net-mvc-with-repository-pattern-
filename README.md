@@ -19,10 +19,11 @@ Analysis:
 1. Firstly, we need to initialize an array of number in word string which corresponds to the array index value, so that we can access         the word by using the index value.
    
     Example.
-    string[] units = new string[] { "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE" };
-    string[] teens = new string[] { "TEN", "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN", "NINETEEN " };
-    string[] tens = new string[] { "", "", "TWENTY", "THIRTY", "FORTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY" };
-    string[] thousands = new string[] { "", "THOUSAND", "MILLION", "BILLION", "TRILLION" };
+    
+        string[] units = new string[] { "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE" };
+        string[] teens = new string[] { "TEN", "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN", "NINETEEN " };
+        string[] tens = new string[] { "", "", "TWENTY", "THIRTY", "FORTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY" };
+        string[] thousands = new string[] { "", "THOUSAND", "MILLION", "BILLION", "TRILLION" };
        
    In this case we can use units[1] to get value string equal "ONE",  units[2] equal to "TWO" and so on. This is same with thousands, hundreds, tens and ones
    
@@ -32,7 +33,8 @@ Analysis:
    Example:
           
    a. The highest place value is thousands 
-         number =5858 
+      
+          number =5858 
           
    b. This will detemine the highest place value  
    
