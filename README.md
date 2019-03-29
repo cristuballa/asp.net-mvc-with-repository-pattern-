@@ -57,33 +57,33 @@ Analysis:
     
 3. Lastly, the code will have the same process for the place value trillions,billions, millions,hundreds, tens, teens and ones as shown below
        
-    if (number >= 1000)   
-                {
-                    ulong hundredscount = (number - (number % 1000)) / 1000; 
-                    numberTexts.Append(ConvertNumberToWord(hundredscount) + " THOuSAND");
-                    number -= hundredscount * 1000;
-                }
-   
-       
-     if (number >= 100)   
-                {
-                    ulong hundredscount = (number - (number % 100)) / 100; 
-                    numberTexts.Append(ConvertNumberToWord(hundredscount) + " HUNDRED");
-                    number -= hundredscount * 100;
-                }
+        if (number >= 1000)   
+                    {
+                        ulong hundredscount = (number - (number % 1000)) / 1000; 
+                        numberTexts.Append(ConvertNumberToWord(hundredscount) + " THOuSAND");
+                        number -= hundredscount * 1000;
+                    }
 
-    if (number >= 10 && number < 20)
-                {
-                    numberTexts.Append(" " + teens[number - 10]);
-                    number = 0;
-                }
 
-    if (number > 0 && number < 10)
-                {
-                    numberTexts.Append(" " + units[number]);
-                }
+         if (number >= 100)   
+                    {
+                        ulong hundredscount = (number - (number % 100)) / 100; 
+                        numberTexts.Append(ConvertNumberToWord(hundredscount) + " HUNDRED");
+                        number -= hundredscount * 100;
+                    }
 
-    return numberTexts.ToString();
+        if (number >= 10 && number < 20)
+                    {
+                        numberTexts.Append(" " + teens[number - 10]);
+                        number = 0;
+                    }
+
+        if (number > 0 && number < 10)
+                    {
+                        numberTexts.Append(" " + units[number]);
+                    }
+
+        return numberTexts.ToString();
 
 
 
