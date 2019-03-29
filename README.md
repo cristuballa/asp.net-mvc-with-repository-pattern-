@@ -48,21 +48,28 @@ Analysis:
     
           numberTexts.Append( thousandscount + " THOUSAND");
           
-    e. That's why we need to convert the digit 5 by calling the same method and passing 5 as parameter. This time it will fall under (number > 0 && number < 10) and will return and string "FIVE"
+    e. That's why we need to convert the digit 5 by calling the same method and passing 5 as parameter. This time it will fall under (number > 0 && number < 10) and will return a string which is "FIVE"
           
           numberTexts.Append(ConvertNumberToWord(thousandscount) + " THOUSAND");  //result string "FIVE THOUSAND"
           
-    d. Here, number = 5858 but we already convert 5000 to string so we nee to eliminate 5000 so that the result will be 858 using the following code
+    d. Here, number = 5858, but we already converted 5000 to string, so we need to eliminate 5000 so that the result will be 858 by using the following code
        
        number -= hundredscount * 1000; // result is 858 then execute the same process for the hundreds, tens, ones
    
     
-3. Lastly, the code will have the same process for the place value trillions,billions, millions,hundreds, tens, teens and ones as shown below
+3. Lastly, the code will have the same process for the place value trillions,billions, millions,hundreds, tens, teens and ones as shown below.
+
+        if (number >= 1000000)   
+                    {
+                        ulong hundredscount = (number - (number % 1000000)) / 1000000; 
+                        numberTexts.Append(ConvertNumberToWord(hundredscount) + " MILLION");
+                        number -= hundredscount * 1000000;
+                    }
        
         if (number >= 1000)   
                     {
                         ulong hundredscount = (number - (number % 1000)) / 1000; 
-                        numberTexts.Append(ConvertNumberToWord(hundredscount) + " THOuSAND");
+                        numberTexts.Append(ConvertNumberToWord(hundredscount) + " THOUSAND");
                         number -= hundredscount * 1000;
                     }
 
