@@ -12,6 +12,7 @@ namespace WebMVC.Controllers
       
         public ActionResult Index()
         {
+
             var numberToText = new NumberToText();
             return View(numberToText);
         }
