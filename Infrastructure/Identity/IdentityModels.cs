@@ -10,6 +10,8 @@ namespace Infrastructure.Identity
 
     public class ApplicationUser : IdentityUser
     {
+
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -22,7 +24,7 @@ namespace Infrastructure.Identity
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("inventoryConnection", throwIfV1Schema: false)
         {
         }
 
