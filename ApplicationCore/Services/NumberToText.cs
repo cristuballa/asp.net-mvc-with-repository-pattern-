@@ -9,19 +9,25 @@ namespace ApplicationCore.Services
     {
 
         public decimal Amount { get; set; }
-        public string AmountInWords { get; set; } 
+        public string AmountInWords { get; set; } = "";
+
 
         public void ConvertAmountToWord(decimal number)
         {
             try
             {
-                decimal decimalPart = (Math.Round(number, 2, MidpointRounding.ToEven) % 1.0m) * 100m;
-                ulong decimalPartLong = (ulong)decimalPart;
-                ulong integralPart = (ulong)number;
-                string integralPartStr = ConvertNumberToWord(integralPart);
-                string decimalPartStr = decimalPartLong>0 ? "AND" + ConvertNumberToWord(decimalPartLong) + " CENTS" : " ";
+                if (number>0)
+                { 
+                    decimal decimalPart = (Math.Round(number, 2, MidpointRounding.ToEven) % 1.0m) * 100m;
+                    ulong decimalPartLong = (ulong)decimalPart;
+                    ulong integralPart = (ulong)number;
+                    string integralPartStr = ConvertNumberToWord(integralPart);
+                    string decimalPartStr = decimalPartLong>0 ? "AND" + ConvertNumberToWord(decimalPartLong) + " CENTS" : " ";
 
-                AmountInWords= integralPartStr + " " + decimalPartStr;
+                    AmountInWords= integralPartStr + " " + decimalPartStr;
+                }
+
+
             }
             catch (Exception)
             {
@@ -64,7 +70,6 @@ namespace ApplicationCore.Services
                     number -= hundredscount * 100;
                 }
 
-                // ConvertSmallNumberToText(number, numberTexts);
 
                 if (number >= 20 && number < 100)
                 {

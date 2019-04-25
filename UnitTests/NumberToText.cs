@@ -8,6 +8,8 @@ namespace UnitTests
     {
         [Theory]
         [InlineData(0, "")]
+        [InlineData(-1, "")]
+        [InlineData(0, "")]
         [InlineData(1, "ONE")]
         [InlineData(2, "TWO")]
         [InlineData(3, "THREE")]
@@ -41,7 +43,7 @@ namespace UnitTests
         [InlineData(1000, "ONE THOUSAND")]
         [InlineData(12345, "TWELVE THOUSAND THREE HUNDRED FORTY FIVE")]
         [InlineData(6789, "SIX THOUSAND SEVEN HUNDRED EIGHTY NINE")] 
-        [InlineData(1000000000000000000, "Invalid Amount.")] //More that 999 trillion 
+        [InlineData(1000000000000000000, "Invalid Amount.")] //More than 999 trillion 
 
         public void NumberToTextShouldPass(decimal Amount, string expected)
         {

@@ -5,6 +5,8 @@ using System.Text;
 
 namespace ApplicationCore.Entities
 {
+
+
     public class Supplier : BaseEntity
     {
         [Display(Name ="Company Name")]
